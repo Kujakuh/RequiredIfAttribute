@@ -8,12 +8,19 @@ namespace RequiredIf
 {
     class ValidationRules
     {
-        public static bool IsSurnameEmpty(object instace)
+        public static bool IsSurnameEmpty(object instance)
         {
-            if (instace is Person test)
+            if (instance is Person test)
             {
                 return string.IsNullOrWhiteSpace(test.Surname);
             }
+
+            // Same as doing:
+
+            Person? per = instance as Person;
+            // Same as Person per = (Person) instance; but without the InvalidCastException
+
+            if (per != null) return string.IsNullOrWhiteSpace(per.Surname);
 
             return false;
         }
