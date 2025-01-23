@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace RequiredIf
 {
-    class External
+    class ValidationRules
     {
         public static bool IsSurnameEmpty(object instace)
         {
-            if(instace is Test test)
+            if (instace is Person test)
+            {
                 return string.IsNullOrWhiteSpace(test.Surname);
+            }
+
             return false;
         }
     }

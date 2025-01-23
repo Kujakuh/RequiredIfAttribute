@@ -8,11 +8,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RequiredIf
 {
-    public partial class Test : ObservableValidator
+    public partial class Person : ObservableValidator
     {
         [ObservableProperty]
         //[RequiredWhen("IsSurnameEmpty")]
-        [RequiredIf("IsSurnameEmpty", typeof(External))]
+        [RequiredIf(nameof(ValidationRules.IsSurnameEmpty), typeof(ValidationRules), parameters: [], AllowEmptyStrings = false)]
         private string? _name;
 
         [ObservableProperty]
