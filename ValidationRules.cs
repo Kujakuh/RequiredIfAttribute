@@ -8,9 +8,9 @@ namespace RequiredIf
 {
     class ValidationRules
     {
-        public static bool IsSurnameEmpty(object instance)
+        public static bool IsSurnameEmpty(object instance, int mode)
         {
-            if (instance is Person test)
+            if (instance is Person test && mode == 1)
             {
                 return string.IsNullOrWhiteSpace(test.Surname);
             }

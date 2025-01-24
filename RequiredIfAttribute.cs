@@ -137,12 +137,12 @@ namespace RequiredIf
             {
                 if (value is null)
                 {
-                    return new ValidationResult(ErrorMessage ?? $"The {validationContext.DisplayName} field is required.");
+                    return new ValidationResult(ErrorMessage ?? $"The {validationContext.DisplayName} field is required.", [validationContext.DisplayName]);
                 }
 
                 if (!AllowEmptyStrings && value is string stringValue && string.IsNullOrWhiteSpace(stringValue))
                 {
-                    return new ValidationResult(ErrorMessage ?? $"The {validationContext.DisplayName} field cannot be empty or whitespace.");
+                    return new ValidationResult(ErrorMessage ?? $"The {validationContext.DisplayName} field cannot be empty or whitespace.", [validationContext.DisplayName]);
                 }
             }
 

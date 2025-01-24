@@ -11,7 +11,6 @@ namespace RequiredIf
     public partial class Person : ObservableValidator
     {
         [ObservableProperty]
-        //[RequiredWhen("IsSurnameEmpty")]
         [RequiredIf(nameof(ValidationRules.IsSurnameEmpty), typeof(ValidationRules), parameters: [], AllowEmptyStrings = false)]
         private string? _name;
 
