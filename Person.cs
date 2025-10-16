@@ -11,18 +11,24 @@ namespace RequiredIf
     public partial class Person : ObservableValidator
     {
         [ObservableProperty]
-        [RequiredIf(nameof(ValidationRules.IsSurnameEmpty), typeof(ValidationRules), parameters: [], AllowEmptyStrings = false)]
+        //[RequiredIf("IsSurnameEmpty", parameters: [1], AllowEmptyStrings = true)]
+        [RequiredIf("IsSurnameEmpty2", AllowEmptyStrings = false)]
         private string? _name;
 
         [ObservableProperty]
         [Required]
         private string? _surname;
 
-        private bool IsSurnameEmpty(object instance)
+        public bool IsSurnameEmpty(Person per, int? mode)
         {
-            return string.IsNullOrWhiteSpace(Surname);
+            if (mode == 1) return true;
+            return false;
         }
-        private bool flag() => true;
+
+        public bool IsSurnameEmpty2()
+        {
+            return true;
+}
 
         public void ValidateSelf() => ValidateAllProperties();
     }

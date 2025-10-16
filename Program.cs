@@ -43,12 +43,12 @@ namespace RequiredIf
             ValidateModel(test5);
 
             // Scenario 6: Condition not met, Surname is empty, Name is set (validation should pass)
-            TestWithoutCondition test6 = new TestWithoutCondition
+            Student teststudent1 = new Student
             {
                 Surname = "",
                 Name = "John"
             };
-            ValidateModel(test6);
+            ValidateModel(teststudent1);
 
             // Scenario 7: Condition not met, Surname is not empty, Name is null (validation should pass)
             TestWithoutCondition test7 = new TestWithoutCondition
@@ -62,6 +62,15 @@ namespace RequiredIf
             {
                 Surname = "Doe",
                 Name = "John"
+            };
+            ValidateModel(test8);
+
+            // Scenario 8: Condition not met, Surname is not empty, Name is set (validation should pass)
+            Student teststudent2 = new Student
+            {
+                Surname = "Doe",
+                Name = "John",
+                StudentId = "HD723IKK"
             };
             ValidateModel(test8);
 
@@ -123,7 +132,7 @@ namespace RequiredIf
 
     public class TestWithoutCondition : Person
     {
-        private bool isSurnameEmpty() => false;
+ 
     }
 
 }

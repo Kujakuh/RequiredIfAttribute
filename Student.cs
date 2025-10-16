@@ -10,12 +10,10 @@ namespace RequiredIf
     partial class Student : Person
     {
         [ObservableProperty]
-        [RequiredIf(nameof(IsStudentIdEmpty), AllowEmptyStrings = false)]
+        //[RequiredIf<ValidationRules>(nameof(ValidationRules.IsSurnameEmptyEXT), parameters: [1])]
+        //[RequiredIf<ValidationRules>("IsSurnameEmptyEXT", parameters: [1])]
+        //[RequiredIf("IsSurnameEmpty", parameters: [1], AllowEmptyStrings = true)]
+        [RequiredIf(nameof(IsSurnameEmpty2))]
         string? _studentId;
-
-        public bool IsStudentIdEmpty(object instance)
-        {
-            return string.IsNullOrWhiteSpace(StudentId) && string.IsNullOrWhiteSpace(Name);
-        }
     }
 }
