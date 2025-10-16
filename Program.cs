@@ -12,7 +12,6 @@ namespace RequiredIf
 
             // Scenario 1: Condition met, Surname is empty, Name is null (validation should fail)
             Person test1 = new Person { Surname = "" };
-            Person t1 = new Person { Name = "         ", Surname = "        " };
             ValidateModel(test1);
 
             // Scenario 2: Condition met, Surname is empty, Name is set (validation should pass)
@@ -58,7 +57,7 @@ namespace RequiredIf
             ValidateModel(test7);
 
             // Scenario 8: Condition not met, Surname is not empty, Name is set (validation should pass)
-            TestWithoutCondition test8 = new TestWithoutCondition
+            NestedHierarchyTest test8 = new NestedHierarchyTest
             {
                 Surname = "Doe",
                 Name = "John"
@@ -74,15 +73,13 @@ namespace RequiredIf
             };
             ValidateModel(teststudent2);
 
-            t1.ValidateSelf();
-            List<ValidationResult> enumerable = t1.GetErrors().ToList();
-            foreach (var value in enumerable) Console.WriteLine(value.ErrorMessage);
-
             Person test = new Person
             {
                 Surname = "  ", // Inválido
                 Name = null    // Inválido porque Surname está vacío
             };
+
+            Console.WriteLine("\nSINGLE VALIDATION TEST: \n.");
 
             // Validar el modelo
             test.ValidateSelf();
@@ -133,6 +130,11 @@ namespace RequiredIf
     public class TestWithoutCondition : Person
     {
  
+    }
+
+    public class NestedHierarchyTest : Student
+    {
+
     }
 
 }

@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RequiredIf
 {
-    partial class Student : Person
+    public partial class Student : Person
     {
         [ObservableProperty]
         //[RequiredIf<ValidationRules>(nameof(ValidationRules.IsSurnameEmptyEXT), parameters: [1])]

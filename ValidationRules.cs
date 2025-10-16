@@ -23,12 +23,13 @@ namespace RequiredIf
         {
             if (st is Student std)
             {
-                Console.WriteLine($"{std.StudentId} id, with name: {std.Name}"); 
+                Console.WriteLine($"{std.StudentId} id, with name: {std.Name}");
                 return true;
             }
             else if (st is Person per)
+            {
                 Console.WriteLine($"Given person with name: {per.Name} is not a Student");
-
+            }
             return false;
         }
     }

@@ -29,7 +29,7 @@ namespace RequiredIf
         public bool IsSurnameEmpty2()
         {
             return true;
-}
+        }
 
         public void ValidateSelf() => ValidateAllProperties();
     }
