@@ -17,6 +17,7 @@ namespace RequiredIf
 
         [ObservableProperty]
         [Required]
+        //[RequiredIf<ValidationRules>(nameof(ValidationRules.TestOutGeneric))]
         private string? _surname;
 
         public bool IsSurnameEmpty(Person per, int? mode)

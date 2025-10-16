@@ -72,7 +72,7 @@ namespace RequiredIf
                 Name = "John",
                 StudentId = "HD723IKK"
             };
-            ValidateModel(test8);
+            ValidateModel(teststudent2);
 
             t1.ValidateSelf();
             List<ValidationResult> enumerable = t1.GetErrors().ToList();
