@@ -28,7 +28,7 @@ namespace RequiredIf
 
         public bool IsSurnameEmpty2()
         {
-            return true;
+            return string.IsNullOrWhiteSpace(Surname) || string.IsNullOrEmpty(Surname);
         }
 
         public void ValidateSelf() => ValidateAllProperties();

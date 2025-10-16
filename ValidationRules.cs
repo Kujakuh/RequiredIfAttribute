@@ -14,6 +14,9 @@ namespace RequiredIf
             return false;
         }
 
+        // EG: Conditional ext API call, instance data not required
+        public static bool TestNoParam() => true;
+
         public static bool TestOut(Student st)
         {
             Console.WriteLine($"{st.StudentId} id, with name: {st.Name}"); return true;

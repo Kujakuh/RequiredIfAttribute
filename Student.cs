@@ -13,9 +13,10 @@ namespace RequiredIf
         //[RequiredIf<ValidationRules>(nameof(ValidationRules.IsSurnameEmptyEXT), parameters: [1])]
         //[RequiredIf<ValidationRules>("IsSurnameEmptyEXT", parameters: [1])]
         //[RequiredIf<ValidationRules>("TestOut")]
-        [RequiredIf<ValidationRules>(nameof(ValidationRules.TestOutGeneric))]
+        [RequiredIf<ValidationRules>("TestNoParam")]
+        //[RequiredIf<ValidationRules>(nameof(ValidationRules.TestOutGeneric))]
         //[RequiredIf("IsSurnameEmpty", parameters: [1], AllowEmptyStrings = true)]
-        //[RequiredIf(nameof(IsSurnameEmpty2))]
+        [RequiredIf(nameof(IsSurnameEmpty2))]
         string? _studentId;
     }
 }
